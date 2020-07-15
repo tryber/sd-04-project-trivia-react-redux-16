@@ -19,7 +19,7 @@ export default function InitialPage() {
         </div>
         <div>
           <input type="submit" value="Jogar" data-testid="btn-play" name="email" placeholder="Email" onClick="formValid()" disabled/>
-          {/* <button data-testid="btn-play">Jogar</button> */}
+          {/* <button data-testid="btn-play">Jogar</button> */ }
         </div>
       </form>
     </div>
