@@ -9,5 +9,6 @@ const getToken = () => fetch('https://opentdb.com/api_token.php?command=request'
 
 export const fetchTrivia = async () => {
   const token = await getToken().token;
+  localStorage.token = token;
   return fetch(`https://opentdb.com/api.php?amount=5&token=${token}`).then((res) => res.json());
 };
