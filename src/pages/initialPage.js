@@ -10,10 +10,12 @@ class InitialPage extends Component {
     this.state = {
       name: null,
       gravatarEmail: null,
+      showConfig: false,
     };
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.toggleConfig = this.toggleConfig.bind(this);
   }
 
   onChange(event) {
@@ -26,13 +28,17 @@ class InitialPage extends Component {
   onSubmit(event) {
     event.preventDefault();
     const { gravatarEmail } = this.state;
-    const { onSubmit, history } = this.props;   
+    const { onSubmit, history } = this.props;
     onSubmit({ ...this.state, picture: getGravatar(gravatarEmail) });
     history.push('/game');
   }
 
+  toggleConfig() {
+    this.setState((state) => ({ showConfig: !state.showConfig }));
+  }
+
   render() {
-    const { name, gravatarEmail } = this.state;
+    const { name, gravatarEmail, showConfig } = this.state;
     return (
       <div>
         <form id="loginForm" name="form" onSubmit={this.onSubmit}>
@@ -66,6 +72,17 @@ class InitialPage extends Component {
             </button>
           </div>
         </form>
+        <div>
+          <button
+            data-testid="btn-setting"
+            type="button"
+            id="btnConf"
+            onClick={this.toggleConfig}
+          >
+            Configurações
+          </button>
+        </div>
+        {showConfig && <h1 data-testid="setting-title">Configurações</h1>}
       </div>
     );
   }
