@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updatePlayer } from '../redux/action';
@@ -44,30 +45,14 @@ class InitialPage extends Component {
         <form id="loginForm" name="form" onSubmit={this.onSubmit}>
           <div>
             <label data-testid="input-player-name" htmlFor="name">Nome:</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder=" Nome do jogador"
-              onChange={this.onChange}
-            />
+            <input type="text" id="name" name="name" placeholder=" Nome do jogador" onChange={this.onChange} />
           </div>
           <div>
             <label data-testid="input-gravatar-email" htmlFor="email">Email:</label>
-            <input
-              type="email"
-              id="email"
-              name="gravatarEmail"
-              onChange={this.onChange}
-            />
+            <input type="email" id="email" name="gravatarEmail" onChange={this.onChange} />
           </div>
           <div>
-            <button
-              data-testid="btn-play"
-              type="submit"
-              id="btn"
-              disabled={!name || !gravatarEmail}
-            >
+            <button data-testid="btn-play" type="submit" id="btn" disabled={!name || !gravatarEmail}>
               Jogar
             </button>
           </div>
@@ -87,6 +72,13 @@ class InitialPage extends Component {
     );
   }
 }
+
+InitialPage.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
+  onSubmit: PropTypes.func.isRequired,
+};
 
 function mapDispatchToProps(dispatch) {
   return {
