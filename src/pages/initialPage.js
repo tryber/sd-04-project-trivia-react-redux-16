@@ -45,7 +45,7 @@ class InitialPage extends Component {
         <form id="loginForm" name="form" onSubmit={this.onSubmit}>
           <div>
             <label data-testid="input-player-name" htmlFor="name">Nome:</label>
-            <input type="text" id="name" name="name" placeholder=" Nome do jogador" onChange={this.onChange} />
+            <input type="text" id="name" name="name" onChange={this.onChange} />
           </div>
           <div>
             <label data-testid="input-gravatar-email" htmlFor="email">Email:</label>
