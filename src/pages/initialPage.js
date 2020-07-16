@@ -1,27 +1,65 @@
-import React from "react";
+import React, { Component } from 'react';
 
-export default function InitialPage() {
+export default class initialPage extends Component {
+  constructor(props) {
+    super(props);
 
-  
+    this.state = {
+      name: null,
+      email: null,
+    };
 
-  return (
+    this.onChange = this.onChange.bind(this);
+  }
 
-    
-    <div>
-      <form id="form" method="POST" name="form">
-        <div>
-          <label data-testid="input-player-name">Nome:</label>
-          <input type="text" id="nome" name="name" placeholder="nome do jogador"/>
-        </div>
-        <div>
-          <label data-testid="input-gravatar-email">Email:</label>
-          <input type="email" id="email" />
-        </div>
-        <div>
-          <input type="submit" value="Jogar" data-testid="btn-play" name="email" placeholder="Email" onClick="formValid()" disabled/>
-          {/* <button data-testid="btn-play">Jogar</button> */ }
-        </div>
-      </form>
-    </div>
-  );
+  onChange(event) {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value,
+    });
+  }
+
+  onSubmit(event) {
+    event.preventDefault();
+  }
+
+  render() {
+    const { name, email } = this.state;
+    console.log(name, email);
+    return (
+      <div>
+        <form id="loginForm" name="form" onSubmit={this.onSubmit}>
+          <div>
+            <label data-testid="input-player-name">Nome:</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder=" Nome do jogador"
+              onChange={this.onChange}
+            />
+          </div>
+          <div>
+            <label data-testid="input-gravatar-email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              onChange={this.onChange}
+            />
+          </div>
+          <div>
+            <button
+              data-testid="btn-play"
+              type="submit"
+              id="btn"
+              disabled={!name || !email}
+            >
+              Jogar
+            </button>
+          </div>
+        </form>
+      </div>
+    );
+  }
 }
