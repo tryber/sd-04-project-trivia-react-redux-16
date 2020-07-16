@@ -9,6 +9,7 @@ import React, { Component } from 'react';
 
 class TotalScore extends Component {
   render() {
+    const { score, assertions } = this.props;
     return (
       <div data-testid='feedback-total-question'>
         <h1>Você acertou 2 questões!</h1>
