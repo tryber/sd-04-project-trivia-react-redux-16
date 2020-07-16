@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { updatePlayer } from '../redux/action';
+import { getGravatar } from '../service';
 
-export default class initialPage extends Component {
+class InitialPage extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       name: null,
-      email: null,
+      gravatarEmail: null,
     };
 
     this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   onChange(event) {
@@ -21,16 +25,19 @@ export default class initialPage extends Component {
 
   onSubmit(event) {
     event.preventDefault();
+    const { gravatarEmail } = this.state;
+    const { onSubmit, history } = this.props;   
+    onSubmit({ ...this.state, picture: getGravatar(gravatarEmail) });
+    history.push('/game');
   }
 
   render() {
-    const { name, email } = this.state;
-    console.log(name, email);
+    const { name, gravatarEmail } = this.state;
     return (
       <div>
         <form id="loginForm" name="form" onSubmit={this.onSubmit}>
           <div>
-            <label data-testid="input-player-name">Nome:</label>
+            <label data-testid="input-player-name" htmlFor="name">Nome:</label>
             <input
               type="text"
               id="name"
@@ -40,11 +47,11 @@ export default class initialPage extends Component {
             />
           </div>
           <div>
-            <label data-testid="input-gravatar-email">Email:</label>
+            <label data-testid="input-gravatar-email" htmlFor="email">Email:</label>
             <input
               type="email"
               id="email"
-              name="email"
+              name="gravatarEmail"
               onChange={this.onChange}
             />
           </div>
@@ -53,7 +60,7 @@ export default class initialPage extends Component {
               data-testid="btn-play"
               type="submit"
               id="btn"
-              disabled={!name || !email}
+              disabled={!name || !gravatarEmail}
             >
               Jogar
             </button>
@@ -63,3 +70,11 @@ export default class initialPage extends Component {
     );
   }
 }
+
+function mapDispatchToProps(dispatch) {
+  return {
+    onSubmit: (player) => dispatch(updatePlayer(player)),
+  };
+}
+
+export default connect(null, mapDispatchToProps)(InitialPage);
