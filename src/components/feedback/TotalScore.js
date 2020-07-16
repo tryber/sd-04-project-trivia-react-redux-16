@@ -11,10 +11,10 @@ class TotalScore extends Component {
   render() {
     return (
       <div data-testid='feedback-total-question'>
-        <div>Você acertou 2 questões!</div>
+        <h1>Você acertou 2 questões!</h1>
         <div>Um total de 20 pontos</div>
-    )
       </div>
+    )
   }
 }
 
