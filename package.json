@@ -12,7 +12,8 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "prop-types": "^15.7.2"
   },
   "scripts": {
     "cy": "cypress run",
@@ -51,8 +52,7 @@
     "mocha": "^7.2.0",
     "mochawesome": "^6.1.1",
     "mochawesome-merge": "^4.0.3",
-    "mochawesome-report-generator": "^5.1.0",
-    "prop-types": "^15.7.2"
+    "mochawesome-report-generator": "^5.1.0"
   },
   "jest": {
     "coveragePathIgnorePatterns": [

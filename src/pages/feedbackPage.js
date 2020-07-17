@@ -26,8 +26,8 @@ class FeedbackPage extends Component {
         <div className="feedbackText">
           {this.PrintScore()}
           <TotalScore score={score} assertions={assertions} />
-          <Link to="/game" data-testid="btn-play-again">Jogar novamente</Link>
-          <Link to="/ranks" data-testid="ranking-title">Ver Ranking</Link>
+          <Link to="/" data-testid="btn-play-again">Jogar novamente</Link>
+          <Link to="/ranks" data-testid="btn-ranking">Ver Ranking</Link>
         </div>
       </div>
     );
@@ -35,7 +35,7 @@ class FeedbackPage extends Component {
 }
 
 FeedbackPage.propTypes = {
-  assertions: PropTypes.isRequired,
+  assertions: PropTypes.number.isRequired,
   score: PropTypes.number.isRequired,
 };
 

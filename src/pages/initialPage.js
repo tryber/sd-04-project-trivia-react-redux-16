@@ -71,11 +71,11 @@ class InitialPage extends Component {
           </div>
         </form>
         <div>
-          <button data-testid="btn-setting" type="button" id="btnConf" onClick={this.toggleConfig}>
+          <button data-testid="btn-settings" type="button" id="btnConf" onClick={this.toggleConfig}>
             Configurações
           </button>
         </div>
-        {showConfig && <h1 data-testid="setting-title">Configurações</h1>}
+        {showConfig && <h1 data-testid="settings-title">Configurações</h1>}
       </div>
     );
   }
