@@ -71,7 +71,7 @@ class InitialPage extends Component {
           </div>
         </form>
         <div>
-          <button data-testid="btn-setting" type="button" id="btnConf" onClick={this.toggleConfig}>
+          <button data-testid="btn-settings" type="button" id="btnConf" onClick={this.toggleConfig}>
             Configurações
           </button>
         </div>

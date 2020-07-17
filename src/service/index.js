@@ -5,10 +5,11 @@ export const getGravatar = (email) => {
   return `https://www.gravatar.com/avatar/${hash}`;
 };
 
-const getToken = () => fetch('https://opentdb.com/api_token.php?command=request').then((res) => res.json()).then((res) => res.token);
+const getToken = () => fetch('https://opentdb.com/api_token.php?command=request')
+  .then((res) => res.json()).then((res) => res.token);
 
 export const fetchTrivia = async () => {
   const token = await getToken();
   localStorage.token = token;
-  return fetch(`https://opentdb.com/api.php?amount=5&token=${token}`).then((res) => res.json()).then((res) => res.results);
+  return fetch(`https://opentdb.com/api.php?amount=5&token=${token}`).then((res) => res.json());
 };
