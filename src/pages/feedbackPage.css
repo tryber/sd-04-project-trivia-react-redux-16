@@ -1,19 +1,19 @@
 .container {
-  background: #fff;
+  background: white;
   height: 474px;
   position: absolute;
   width: 792px;
 }
 
 .feedbackText {
-  color: #000;
-  font-family: Roboto;
+  color: black;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 46px;
   font-style: normal;
-  font-weight: normal;
-  position: absolute;
+  font-weight: 400;
   height: 188px;
   line-height: 54px;
+  position: absolute;
   text-align: center;
   width: 396px;
 }
@@ -26,11 +26,11 @@
 }
 
 .textBtnVerRanking {
-  color: #000;
+  color: black;
   font-family: Roboto;
   font-size: 32px;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   height: 38px;
   line-height: 37px;
   position: absolute;
@@ -46,11 +46,11 @@
 }
 
 .textBtnJogarNovamente {
-  color: #000000;
-  font-family: Roboto;
+  color: black;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 32px;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   height: 38px;
   line-height: 37px;
   position: absolute;
