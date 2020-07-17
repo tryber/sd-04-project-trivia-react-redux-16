@@ -58,7 +58,7 @@ class InitialPage extends Component {
     return (
       <div>
         <form id="loginForm" name="form" onSubmit={this.onSubmit}>
-          {this.renderInputs}
+          {this.renderInputs()}
           <div>
             <button data-testid="btn-play" type="submit" id="btn" disabled={!name || !gravatarEmail}>
               Jogar
