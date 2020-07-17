@@ -1,0 +1,73 @@
+.container {
+  position: absolute;
+  width: 792px;
+  height: 474px;
+
+  background: #ffffff;
+}
+
+.feedbackText {
+  position: absolute;
+  width: 396px;
+  height: 188px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 46px;
+  line-height: 54px;
+  text-align: center;
+
+  color: #000000;
+}
+
+.btnVerRanking {
+  position: absolute;
+  width: 374px;
+  height: 70px;
+
+  background: #f0f0f0;
+}
+
+.textBtnVerRanking {
+  position: absolute;
+  width: 204px;
+  height: 38px;
+  
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 37px;
+  /* identical to box height */
+  
+  text-align: center;
+  
+  color: #000000;
+}
+
+.btnJogarNovamente {
+  position: absolute;
+  width: 374px;
+  height: 70px;
+
+  background: #86d660;
+}
+
+.textBtnJogarNovamente {
+  position: absolute;
+width: 301px;
+height: 38px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 32px;
+line-height: 37px;
+/* identical to box height */
+
+text-align: center;
+
+color: #000000;
+
+}
