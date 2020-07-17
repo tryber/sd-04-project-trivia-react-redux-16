@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -32,6 +33,11 @@ class FeedbackPage extends Component {
     );
   }
 }
+
+FeedbackPage.propTypes = {
+  assertions: PropTypes.isRequired,
+  score: PropTypes.number.isRequired,
+};
 
 const mapStateToProps = (state) => ({
   score: state.player.score,
