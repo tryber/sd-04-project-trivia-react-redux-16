@@ -6,7 +6,7 @@ class RankingPage extends Component {
       <div>
         Xablau
       </div>
-    )
+    );
   }
 }
 

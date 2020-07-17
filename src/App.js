@@ -4,7 +4,7 @@ import './App.css';
 import {
   InitialPage, GamePage, FeedbackPage,
 } from './pages';
-import RankingPage from "./pages/rankingPage";
+import RankingPage from './pages/rankingPage';
 
 export default function App() {
   return (

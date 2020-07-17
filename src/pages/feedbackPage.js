@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -12,9 +13,9 @@ class FeedbackPage extends Component {
 
   PrintScore() {
     if (this.props.score > 3) {
-      return <div data-testid='feedback-text'>Podia ser melhor...</div>;
+      return <div data-testid="feedback-text">Podia ser melhor...</div>;
     }
-    return <div data-testid='feedback-text'>Podia ser melhor...</div>;
+    return <div data-testid="feedback-text">Podia ser melhor...</div>;
   }
 
   render() {
@@ -25,13 +26,18 @@ class FeedbackPage extends Component {
         <div className="feedbackText">
           {this.PrintScore()}
           <TotalScore score={score} assertions={assertions} />
-          <Link to='/game' data-testid='btn-play-again' >Jogar novamente</Link>
-          <Link to='/ranks' data-testid='ranking-title' >Ver Ranking</Link>
+          <Link to="/" data-testid="btn-play-again">Jogar novamente</Link>
+          <Link to="/ranks" data-testid="btn-ranking">Ver Ranking</Link>
         </div>
       </div>
     );
   }
 }
+
+FeedbackPage.propTypes = {
+  assertions: PropTypes.number.isRequired,
+  score: PropTypes.number.isRequired,
+};
 
 const mapStateToProps = (state) => ({
   score: state.player.score,
