@@ -20,7 +20,9 @@ class gamePage extends Component {
     return (
       <div>
         <Header />
-        {questions.length < 1 ? <div>Loading...</div> : <Question info={questions[current]} />}
+        {questions && questions.length > 0
+          ? <Question info={questions[current]} />
+          : <div>Loading...</div>}
       </div>
     );
   }

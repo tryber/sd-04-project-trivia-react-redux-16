@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getGravatar } from '../service';
 
-export const Header = ({ gravatarEmail, name, score }) => (
+const Header = ({ gravatarEmail, name, score }) => (
   <header>
     <img src={getGravatar(gravatarEmail)} alt="profile" data-testid="header-profile-picture" />
     <span data-testid="header-player-name">{name}</span>
