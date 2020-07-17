@@ -6,17 +6,15 @@ class TotalScore extends Component {
   render() {
     const { score, assertions } = this.props;
     return (
-      <div data-testid="feedback-total-question">
-        <h1>
+      <div>
+        <h1 data-testid="feedback-total-question">
           Você acertou
-          {assertions}
-          {' '}
+          {` ${assertions} `}
           questões!
         </h1>
-        <div>
+        <div data-testid="feedback-total-score">
           Um total de
-          {score}
-          {' '}
+          {` ${score} `}
           pontos
         </div>
       </div>
@@ -25,8 +23,8 @@ class TotalScore extends Component {
 }
 
 TotalScore.propTypes = {
-  assertions: PropTypes.isRequired,
-  score: PropTypes.isRequired,
+  assertions: PropTypes.number.isRequired,
+  score: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => ({

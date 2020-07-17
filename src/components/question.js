@@ -10,6 +10,7 @@ class Question extends Component {
       allAnswers: this.randomizedAnswers(),
       timer: 30,
     };
+    this.changedQuestion = this.changedQuestion.bind(this);
     this.initialize = this.initialize.bind(this);
     this.randomizedAnswers = this.randomizedAnswers.bind(this);
     this.onClick = this.onClick.bind(this);
@@ -21,8 +22,7 @@ class Question extends Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.info.question !== this.props.info.question) {
-      this.setState({ allAnswers: this.randomizedAnswers(), resolve: null, timer: 30 });
-      this.initialize()
+      this.changedQuestion();
     }
   }
 
@@ -30,8 +30,13 @@ class Question extends Component {
     this.setState({ resolve });
     clearInterval(this.timerInterval);
     clearTimeout(this.timerTimeout);
-    if (resolve === "correct") {
-    }
+    // if (resolve === 'correct') {
+    // }
+  }
+
+  changedQuestion() {
+    this.setState({ allAnswers: this.randomizedAnswers(), resolve: null, timer: 30 });
+    this.initialize();
   }
 
   initialize() {
@@ -69,7 +74,7 @@ class Question extends Component {
       <div>
         <span data-testid="question-category">{category}</span>
         <span>{timer}</span>
-        <p data-test-id="question-text">{question}</p>
+        <p data-testid="question-text">{question}</p>
         {allAnswers.map(({ id, text, btn }) => (
           <button
             data-testid={id}
@@ -90,11 +95,17 @@ class Question extends Component {
 }
 
 Question.propTypes = {
-  info: PropTypes.any,
+  info: PropTypes.shape({
+    category: PropTypes.string,
+    question: PropTypes.string,
+    correct_answer: PropTypes.string,
+    incorrect_answers: PropTypes.arrayOf(PropTypes.string),
+  }).isRequired,
+  onNext: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  updatePlayer: (player) => dispatch(updatePlayer(player));
+  updatePlayer: (player) => dispatch(updatePlayer(player)),
 });
 
 export default connect(null, mapDispatchToProps)(Question);

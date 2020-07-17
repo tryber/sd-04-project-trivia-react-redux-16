@@ -75,7 +75,7 @@ class InitialPage extends Component {
             Configurações
           </button>
         </div>
-        {showConfig && <h1 data-testid="setting-title">Configurações</h1>}
+        {showConfig && <h1 data-testid="settings-title">Configurações</h1>}
       </div>
     );
   }
