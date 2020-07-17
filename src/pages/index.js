@@ -1,4 +1,4 @@
-export { default as InitialPage } from './InitialPage';
-export { default as GamePage } from './GamePage';
-export { default as RankingPage } from './RankingPage';
+export { default as InitialPage } from './initialPage';
+export { default as GamePage } from './gamePage';
+export { default as RankingPage } from './rankingPage';
 export { default as FeedbackPage } from './feedbackPage';
