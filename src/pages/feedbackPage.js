@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom';
 import TotalScore from '../components/feedback/TotalScore';
+import { Header } from '../components/header';
 
 class FeedbackPage extends Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class FeedbackPage extends Component {
     const { score, assertions } = this.props;
     return (
       <div className="container">
+        <Header />
         <div className="feedbackText">
           {this.PrintScore()}
           <TotalScore score={score} assertions={assertions} />
