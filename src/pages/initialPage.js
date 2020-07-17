@@ -40,7 +40,7 @@ class InitialPage extends Component {
 
   renderInputs() {
     return (
-      <>
+      <div>
         <div>
           <label data-testid="input-player-name" htmlFor="name">Nome:</label>
           <input type="text" id="name" name="name" onChange={this.onChange} />
@@ -49,7 +49,7 @@ class InitialPage extends Component {
           <label data-testid="input-gravatar-email" htmlFor="email">Email:</label>
           <input type="email" id="email" name="gravatarEmail" onChange={this.onChange} />
         </div>
-      </>
+      </div>
     );
   }
 
