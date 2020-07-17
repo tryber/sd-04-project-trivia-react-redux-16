@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../components/header';
 import { fetchTrivia } from '../service';
-import Question from '../components/question';
+// import Question from '../components/question';
 
 class gamePage extends Component {
   constructor(props) {
