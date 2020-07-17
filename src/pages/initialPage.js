@@ -38,19 +38,27 @@ class InitialPage extends Component {
     this.setState((state) => ({ showConfig: !state.showConfig }));
   }
 
+  renderInputs() {
+    return (
+      <>
+        <div>
+          <label data-testid="input-player-name" htmlFor="name">Nome:</label>
+          <input type="text" id="name" name="name" onChange={this.onChange} />
+        </div>
+        <div>
+          <label data-testid="input-gravatar-email" htmlFor="email">Email:</label>
+          <input type="email" id="email" name="gravatarEmail" onChange={this.onChange} />
+        </div>
+      </>
+    );
+  }
+
   render() {
     const { name, gravatarEmail, showConfig } = this.state;
     return (
       <div>
         <form id="loginForm" name="form" onSubmit={this.onSubmit}>
-          <div>
-            <label data-testid="input-player-name" htmlFor="name">Nome:</label>
-            <input type="text" id="name" name="name" onChange={this.onChange} />
-          </div>
-          <div>
-            <label data-testid="input-gravatar-email" htmlFor="email">Email:</label>
-            <input type="email" id="email" name="gravatarEmail" onChange={this.onChange} />
-          </div>
+          {this.renderInputs}
           <div>
             <button data-testid="btn-play" type="submit" id="btn" disabled={!name || !gravatarEmail}>
               Jogar
