@@ -7,7 +7,7 @@
 
 .feedbackText {
   color: black;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 46px;
   font-style: normal;
   font-weight: 400;
@@ -27,7 +27,7 @@
 
 .textBtnVerRanking {
   color: black;
-  font-family: Roboto;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 32px;
   font-style: normal;
   font-weight: 400;
@@ -47,7 +47,7 @@
 
 .textBtnJogarNovamente {
   color: black;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 32px;
   font-style: normal;
   font-weight: 400;
