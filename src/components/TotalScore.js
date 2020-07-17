@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class TotalScore extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.PrintScore = this.PrintScore.bind(this);
-  // }
 
   render() {
     const { score, assertions } = this.props;

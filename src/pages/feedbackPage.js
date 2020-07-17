@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { Link } from 'react-router-dom';
-import TotalScore from '../components/feedback/TotalScore';
-import { Header } from '../components/header';
+import { Link } from 'react-router-dom';
+import TotalScore from '../components/TotalScore';
+import Header from '../components/header';
 
 class FeedbackPage extends Component {
   constructor(props) {
@@ -11,8 +11,7 @@ class FeedbackPage extends Component {
   }
 
   PrintScore() {
-    if (this.props.score > 3) { // pegar o score de alguma props que irei receber
-      // ou do state do Reduz ou de um componente que será criado.
+    if (this.props.score > 3) {
       return <div data-testid='feedback-text'>Podia ser melhor...</div>;
     }
     return <div data-testid='feedback-text'>Podia ser melhor...</div>;
@@ -26,8 +25,9 @@ class FeedbackPage extends Component {
         <div className="feedbackText">
           {this.PrintScore()}
           <TotalScore score={score} assertions={assertions} />
+          <Link to='/game' data-testid='btn-play-again' >Jogar novamente</Link>
+          <Link to='/ranks' data-testid='ranking-title' >Ver Ranking</Link>
         </div>
-
       </div>
     );
   }
@@ -36,6 +36,7 @@ class FeedbackPage extends Component {
 const mapStateToProps = (state) => ({
   score: state.player.score,
   assertions: state.player.assertions,
+
 });
 
 export default connect(mapStateToProps)(FeedbackPage);

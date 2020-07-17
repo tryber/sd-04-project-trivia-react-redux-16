@@ -20,7 +20,7 @@ class gamePage extends Component {
     return (
       <div>
         <Header />
-        {questions.length < 1 ? <div>Loading...</div> : <Question />}
+        {/* {questions.length < 1 ? <div>Loading...</div> : <Question />} */}
       </div>
     );
   }
