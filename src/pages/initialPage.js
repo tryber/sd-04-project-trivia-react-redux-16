@@ -60,7 +60,12 @@ class InitialPage extends Component {
         <form id="loginForm" name="form" onSubmit={this.onSubmit}>
           {this.renderInputs()}
           <div>
-            <button data-testid="btn-play" type="submit" id="btn" disabled={!name || !gravatarEmail}>
+            <button
+              data-testid="btn-play"
+              type="submit"
+              id="btn"
+              disabled={!name || !gravatarEmail}
+            >
               Jogar
             </button>
           </div>
