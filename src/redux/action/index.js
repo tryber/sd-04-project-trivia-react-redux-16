@@ -6,8 +6,7 @@ export const updatePlayer = (player) => ({
   //     name,
   //     assertions,
   //     score,
-  //     gravatarEmail,
-  //     picture
+  //     gravatarEmail
   // }
   type: UPDATE_PLAYER,
   player,
