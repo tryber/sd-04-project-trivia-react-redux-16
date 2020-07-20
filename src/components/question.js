@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { updatePlayer } from '../redux/action';
+import { updateScore } from '../redux/action';
 
 class Question extends Component {
   constructor(props) {
@@ -27,11 +27,18 @@ class Question extends Component {
   }
 
   onClick(resolve) {
+    const { info: { difficulty }, onUpdateScore } = this.props;
+    const { timer } = this.state;
     this.setState({ resolve });
     clearInterval(this.timerInterval);
     clearTimeout(this.timerTimeout);
-    // if (resolve === 'correct') {
-    // }
+    if (resolve === 'correct') {
+      const difHelper = {
+        hard: 3, medium: 2, easy: 1,
+      };
+      console.log(`timer ${timer}, dif ${difHelper[difficulty]}`);
+      onUpdateScore(10 + (timer * difHelper[difficulty]));
+    }
   }
 
   changedQuestion() {
@@ -44,7 +51,6 @@ class Question extends Component {
       this.setState(({ timer }) => ({ timer: timer - 1 }));
     }, 1000);
     this.timerTimeout = setTimeout(() => {
-      clearInterval(this.timerInterval);
       this.onClick('time out');
     }, 30000);
   }
@@ -102,10 +108,11 @@ Question.propTypes = {
     incorrect_answers: PropTypes.arrayOf(PropTypes.string),
   }).isRequired,
   onNext: PropTypes.func.isRequired,
+  onUpdateScore: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  updatePlayer: (player) => dispatch(updatePlayer(player)),
+  onUpdateScore: (score) => dispatch(updateScore(score)),
 });
 
 export default connect(null, mapDispatchToProps)(Question);
