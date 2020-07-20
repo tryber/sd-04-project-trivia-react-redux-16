@@ -12,10 +12,11 @@ class FeedbackPage extends Component {
   }
 
   PrintScore() {
-    if (this.props.score > 3) {
-      return <div data-testid="feedback-text">Podia ser melhor...</div>;
+    const { assertions } = this.props;
+    if (assertions < 3) {
+      return 'Podia ser melhor...';
     }
-    return <div data-testid="feedback-text">Podia ser melhor...</div>;
+    return 'Mandou bem!';
   }
 
   render() {
@@ -24,7 +25,7 @@ class FeedbackPage extends Component {
       <div className="container">
         <Header />
         <div className="feedbackText">
-          {this.PrintScore()}
+          <div data-testid="feedback-text">{this.PrintScore()}</div>
           <TotalScore score={score} assertions={assertions} />
           <Link to="/" data-testid="btn-play-again">Jogar novamente</Link>
           <Link to="/ranks" data-testid="btn-ranking">Ver Ranking</Link>
