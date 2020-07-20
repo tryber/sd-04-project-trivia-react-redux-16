@@ -7,7 +7,6 @@ export default (state = initialState, { type, newPlayer }) => {
   switch (type) {
     case UPDATE_RANKING:
       newState = [...state, newPlayer];
-      console.log(newState);
       localStorage.ranking = JSON.stringify(newState);
       return newState;
 

@@ -44,6 +44,9 @@ class FeedbackPage extends Component {
 FeedbackPage.propTypes = {
   assertions: PropTypes.number.isRequired,
   score: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  picture: PropTypes.string.isRequired,
+  onMount: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ player: { score, assertions, name, picture } }) => ({

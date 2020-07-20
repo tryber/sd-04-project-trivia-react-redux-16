@@ -43,11 +43,21 @@ class InitialPage extends Component {
       <div>
         <div>
           <label htmlFor="name">Nome:</label>
-          <input data-testid="input-player-name" type="text" id="name" name="name" onChange={this.onChange} />
+          <input
+            data-testid="input-player-name"
+            type="text"
+            id="name"
+            name="name"
+            onChange={this.onChange} />
         </div>
         <div>
           <label htmlFor="email">Email:</label>
-          <input data-testid="input-gravatar-email" type="email" id="email" name="gravatarEmail" onChange={this.onChange} />
+          <input
+            data-testid="input-gravatar-email"
+            type="email"
+            id="email"
+            name="gravatarEmail"
+            onChange={this.onChange} />
         </div>
       </div>
     );
