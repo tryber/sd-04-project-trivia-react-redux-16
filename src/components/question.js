@@ -27,17 +27,17 @@ class Question extends Component {
   }
 
   onClick(resolve) {
-    const { info: { difficulty }, updateScore } = this.props;
+    const { info: { difficulty }, onUpdateScore } = this.props;
     const { timer } = this.state;
-    const difHelper = {
-      hard: 3, medium: 2, easy: 1
-    }
     this.setState({ resolve });
     clearInterval(this.timerInterval);
     clearTimeout(this.timerTimeout);
     if (resolve === 'correct') {
+      const difHelper = {
+        hard: 3, medium: 2, easy: 1,
+      };
       console.log(`timer ${timer}, dif ${difHelper[difficulty]}`);
-      updateScore(10 + (timer * difHelper[difficulty]));
+      onUpdateScore(10 + (timer * difHelper[difficulty]));
     }
   }
 
@@ -108,11 +108,11 @@ Question.propTypes = {
     incorrect_answers: PropTypes.arrayOf(PropTypes.string),
   }).isRequired,
   onNext: PropTypes.func.isRequired,
+  onUpdateScore: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  updatePlayer: (player) => dispatch(updatePlayer(player)),
-  updateScore: (score) => dispatch(updateScore(score)),
+  onUpdateScore: (score) => dispatch(updateScore(score)),
 });
 
 export default connect(null, mapDispatchToProps)(Question);

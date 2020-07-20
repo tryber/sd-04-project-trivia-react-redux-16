@@ -19,8 +19,9 @@ export default (state = initialState, { type, player }) => {
 
     case UPDATE_SCORE:
       newState = {
-        ...state, ...player,
-        assertions: state.assertions + 1
+        ...state,
+        ...player,
+        assertions: state.assertions + 1,
       };
       break;
 
