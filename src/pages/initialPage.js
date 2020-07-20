@@ -48,7 +48,8 @@ class InitialPage extends Component {
             type="text"
             id="name"
             name="name"
-            onChange={this.onChange} />
+            onChange={this.onChange}
+          />
         </div>
         <div>
           <label htmlFor="email">Email:</label>
@@ -57,7 +58,8 @@ class InitialPage extends Component {
             type="email"
             id="email"
             name="gravatarEmail"
-            onChange={this.onChange} />
+            onChange={this.onChange}
+          />
         </div>
       </div>
     );

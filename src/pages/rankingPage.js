@@ -1,5 +1,6 @@
+import PropTypes from "prop-types";
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { resetPlayer } from '../redux/action';
 
@@ -18,7 +19,7 @@ class RankingPage extends Component {
             .sort((a, b) => b.score - a.score)
             .map((player, index) => (
               <li key={player.name} >
-                <img src={player.image} alt={`player-picture-${index}`} />
+                <img src={player.image} alt={`player-${index}`} />
                 <div data-testid={`player-name-${index}`}>{player.name}</div>
                 <div data-testid={`player-score-${index}`}>{player.score}</div>
               </li>
@@ -30,6 +31,11 @@ class RankingPage extends Component {
       </div>
     );
   }
+}
+
+RankingPage.propTypes = {
+  onMount: PropTypes.func,
+  ranking: PropTypes.arrayOf(PropTypes.object),
 }
 
 const mapStateToProps = ({ ranking }) => ({
