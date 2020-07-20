@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -34,9 +34,9 @@ class RankingPage extends Component {
 }
 
 RankingPage.propTypes = {
-  onMount: PropTypes.func,
-  ranking: PropTypes.arrayOf(PropTypes.object),
-}
+  onMount: PropTypes.func.isRequired,
+  ranking: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 const mapStateToProps = ({ ranking }) => ({
   ranking,
