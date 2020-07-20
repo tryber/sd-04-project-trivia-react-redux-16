@@ -19,9 +19,9 @@ class RankingPage extends Component {
             .sort((a, b) => b.score - a.score)
             .map((player, index) => (
           <li key={player.name} >
-            <div data-testid="player-picture-${index}">{ player.picture }</div>
-            <div data-testid="player-name-${index}">{ player.name }</div>
-            <div data-testid="player-score-${index}">{ player.score }</div>
+            <div data-testid={`player-picture-${index}`}>{ player.picture }</div>
+            <div data-testid={`player-name-${index}`}>{ player.name }</div>
+            <div data-testid={`player-score-${index}`}>{ player.score }</div>
           </li>
           ))}
         </ul>
