@@ -27,6 +27,6 @@ export default (state = initialState, { type, player }) => {
     default:
       return state;
   }
-  localStorage.state = JSON.stringify(newState);
+  localStorage.state = JSON.stringify({ player: newState });
   return newState;
 };
