@@ -1,7 +1,7 @@
 import { UPDATE_PLAYER } from '../action';
 
 const initialState = localStorage.state ? {
-  ...JSON.parse(localStorage.state),
+  ...JSON.parse(localStorage.state).player,
   score: 0,
   assertions: 0,
 }
