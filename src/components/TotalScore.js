@@ -7,15 +7,11 @@ class TotalScore extends Component {
     const { score, assertions } = this.props;
     return (
       <div>
-        <h1 data-testid="feedback-total-question">
-          Você acertou
-          {` ${assertions} `}
-          questões!
+        <h1>
+          Você acertou <span data-testid="feedback-total-question">{assertions}</span> questões!
         </h1>
-        <div data-testid="feedback-total-score">
-          Um total de
-          {` ${score} `}
-          pontos
+        <div>
+          Um total de <span data-testid="feedback-total-score">{score}</span> pontos
         </div>
       </div>
     );
