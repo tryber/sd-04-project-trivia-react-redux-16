@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { updatePlayer, updateScore } from '../redux/action';
+import { updateScore } from '../redux/action';
 
 class Question extends Component {
   constructor(props) {
