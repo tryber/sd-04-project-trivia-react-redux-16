@@ -1,26 +1,24 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
+import { resetPlayer } from '../redux/action';
 
 class RankingPage extends Component {
+  componentDidMount() {
+    this.props.onMount();
+  }
 
   render() {
-    // const ranking = JSON.parse(localStorage.getIten('ranking'))
-    const ranking = [
-      { name: "primeirapessoa", score: 10, picture: "urldafoto" },
-      { name: "segundapessoa", score: 30, picture: "urldafoto" },
-      { name: "terceirapessoa", score: 20, picture: "urldafoto" },
-      { name: "quartapessoa", score: 25, picture: "urldafoto" },
-      { name: "quintapessoa", score: 50, picture: "urldafoto" }
-    ]
+    const { ranking } = this.props;
     return (
       <div>
+        <h1 data-testid="ranking-title">Ranking</h1>
         <ul>
           {ranking
             .sort((a, b) => b.score - a.score)
             .map((player, index) => (
               <li key={player.name} >
-                <div data-testid={`player-picture-${index}`}>{player.picture}</div>
+                <img src={player.image} alt={`player-picture-${index}`} />
                 <div data-testid={`player-name-${index}`}>{player.name}</div>
                 <div data-testid={`player-score-${index}`}>{player.score}</div>
               </li>
@@ -34,8 +32,12 @@ class RankingPage extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = ({ ranking }) => ({
+  ranking,
+});
 
-})
+const mapDispatchToProps = (dispatch) => ({
+  onMount: () => dispatch(resetPlayer()),
+});
 
-export default connect(mapStateToProps)(RankingPage)
+export default connect(mapStateToProps, mapDispatchToProps)(RankingPage);

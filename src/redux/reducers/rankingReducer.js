@@ -2,11 +2,12 @@ import { UPDATE_RANKING } from '../action';
 
 const initialState = localStorage.ranking ? JSON.parse(localStorage.ranking) : [];
 
-export default (state = initialState, { type, ranking }) => {
+export default (state = initialState, { type, newPlayer }) => {
   let newState;
   switch (type) {
     case UPDATE_RANKING:
-      newState = [...state, ...ranking];
+      newState = [...state, newPlayer];
+      console.log(newState);
       localStorage.ranking = JSON.stringify(newState);
       return newState;
 

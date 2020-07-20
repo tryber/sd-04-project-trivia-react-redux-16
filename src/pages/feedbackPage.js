@@ -4,11 +4,17 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import TotalScore from '../components/TotalScore';
 import Header from '../components/header';
+import { updateRanking } from '../redux/action';
 
 class FeedbackPage extends Component {
   constructor(props) {
     super(props);
     this.PrintScore = this.PrintScore.bind(this);
+  }
+
+  componentDidMount() {
+    const { onMount, name, score, picture } = this.props;
+    onMount({ name, score, picture });
   }
 
   PrintScore() {
@@ -40,10 +46,15 @@ FeedbackPage.propTypes = {
   score: PropTypes.number.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  score: state.player.score,
-  assertions: state.player.assertions,
-
+const mapStateToProps = ({ player: { score, assertions, name, picture } }) => ({
+  score,
+  assertions,
+  name,
+  picture,
 });
 
-export default connect(mapStateToProps)(FeedbackPage);
+const mapDispatchToProps = (dispatch) => ({
+  onMount: (newPlayer) => dispatch(updateRanking(newPlayer)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(FeedbackPage);
