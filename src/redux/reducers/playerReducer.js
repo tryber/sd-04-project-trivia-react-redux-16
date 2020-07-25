@@ -1,7 +1,7 @@
-import { UPDATE_PLAYER } from '../action';
+import { UPDATE_PLAYER, UPDATE_SCORE, RESET_PLAYER } from '../action';
 
 const initialState = localStorage.state ? {
-  ...JSON.parse(localStorage.state),
+  ...JSON.parse(localStorage.state).player,
   score: 0,
   assertions: 0,
 }
@@ -15,10 +15,22 @@ export default (state = initialState, { type, player }) => {
   switch (type) {
     case UPDATE_PLAYER:
       newState = { ...state, ...player };
-      localStorage.state = JSON.stringify(newState);
-      return newState;
+      break;
+
+    case UPDATE_SCORE:
+      newState = {
+        ...state,
+        score: state.score + player.score,
+        assertions: state.assertions + 1,
+      };
+      break;
+
+    case RESET_PLAYER:
+      return initialState;
 
     default:
       return state;
   }
+  localStorage.state = JSON.stringify({ player: newState });
+  return newState;
 };

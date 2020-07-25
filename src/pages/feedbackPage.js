@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import TotalScore from '../components/TotalScore';
 import Header from '../components/header';
+import { updateRanking } from '../redux/action';
 
 class FeedbackPage extends Component {
   constructor(props) {
@@ -11,11 +12,17 @@ class FeedbackPage extends Component {
     this.PrintScore = this.PrintScore.bind(this);
   }
 
+  componentDidMount() {
+    const { onMount, name, score, picture } = this.props;
+    onMount({ name, score, picture });
+  }
+
   PrintScore() {
-    if (this.props.score > 3) {
-      return <div data-testid="feedback-text">Podia ser melhor...</div>;
+    const { assertions } = this.props;
+    if (assertions < 3) {
+      return 'Podia ser melhor...';
     }
-    return <div data-testid="feedback-text">Podia ser melhor...</div>;
+    return 'Mandou bem!';
   }
 
   render() {
@@ -24,7 +31,7 @@ class FeedbackPage extends Component {
       <div className="container">
         <Header />
         <div className="feedbackText">
-          {this.PrintScore()}
+          <div data-testid="feedback-text">{this.PrintScore()}</div>
           <TotalScore score={score} assertions={assertions} />
           <Link to="/" data-testid="btn-play-again">Jogar novamente</Link>
           <Link to="/ranks" data-testid="btn-ranking">Ver Ranking</Link>
@@ -37,12 +44,20 @@ class FeedbackPage extends Component {
 FeedbackPage.propTypes = {
   assertions: PropTypes.number.isRequired,
   score: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  picture: PropTypes.string.isRequired,
+  onMount: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  score: state.player.score,
-  assertions: state.player.assertions,
-
+const mapStateToProps = ({ player: { score, assertions, name, picture } }) => ({
+  score,
+  assertions,
+  name,
+  picture,
 });
 
-export default connect(mapStateToProps)(FeedbackPage);
+const mapDispatchToProps = (dispatch) => ({
+  onMount: (newPlayer) => dispatch(updateRanking(newPlayer)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(FeedbackPage);
