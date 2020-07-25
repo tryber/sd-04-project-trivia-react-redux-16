@@ -62,12 +62,26 @@
     justify-content: center;
     align-items: center;
     top: -85px;
+    width: 100%;
 }
 
 .initialPage-render-button{
     font-size: 30px;
+    font-weight: 700;
     border-radius: 10px;
+    color: rgb(15, 15, 15);
     border: none;
     height: 50px;
     width: 340px;
+    letter-spacing: 2px;
+    background-color: rgb(36, 3, 56);
+    text-transform: uppercase;
+}
+
+.initialPage-render-button:hover{
+    background-color: rgb(53, 2, 85);
+    transform-style: preserve-3d;
+    color: #fff;
+    transition: 1s;
+    letter-spacing: 5px;
 }
