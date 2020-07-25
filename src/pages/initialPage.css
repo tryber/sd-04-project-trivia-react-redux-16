@@ -1,0 +1,73 @@
+.initialPage{
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 12px;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    justify-content: center;
+    width: 500px;
+}
+
+.initialPage-form1{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+}
+
+.initialPage-form1-label{
+    color: #ffb522;
+    font-size: 1.8rem;
+    font-weight: 600;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.initialPage-form1-input{
+    font-size: 1.8rem;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    color: #fff;
+    background: transparent;
+}
+
+.initialPage-form2{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+}
+
+.initialPage-form2-label{
+  color: #ffb522;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-top: 20px;
+  
+}
+
+.initialPage-form2-input{
+    font-size: 1.8rem;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    color: #fff;
+    background: transparent;
+}
+
+.initialPage-render{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -85px;
+}
+
+.initialPage-render-button{
+    font-size: 30px;
+    border-radius: 10px;
+    border: none;
+    height: 50px;
+    width: 340px;
+}

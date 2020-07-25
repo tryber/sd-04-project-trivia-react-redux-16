@@ -1,0 +1,13 @@
+.totalScore{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.totalScore-h1{
+    color: #555;
+}
+
+.totalScore-score{
+    color: #555;
+}
