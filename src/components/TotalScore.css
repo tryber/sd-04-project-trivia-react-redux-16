@@ -1,0 +1,17 @@
+.totalScore{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 600px;
+    height: 250px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+.totalScore-h1{
+    color: rgb(255, 255, 255);
+}
+
+.totalScore-score{
+    color: rgb(255, 255, 255);
+}

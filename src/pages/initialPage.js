@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updatePlayer } from '../redux/action';
 import { getGravatar } from '../service';
+import './initialPage.css';
 
 class InitialPage extends Component {
   constructor(props) {
@@ -40,26 +41,14 @@ class InitialPage extends Component {
 
   renderInputs() {
     return (
-      <div>
-        <div>
-          <label htmlFor="name">Nome:</label>
-          <input
-            data-testid="input-player-name"
-            type="text"
-            id="name"
-            name="name"
-            onChange={this.onChange}
-          />
+      <div className="initialPage">
+        <div className="initialPage-form1">
+          <label data-testid="input-player-name" htmlFor="name" className="initialPage-form1-label">Nome:</label>
+          <input type="text" id="name" name="name" onChange={this.onChange} className="initialPage-form1-input" />
         </div>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            data-testid="input-gravatar-email"
-            type="email"
-            id="email"
-            name="gravatarEmail"
-            onChange={this.onChange}
-          />
+        <div className="initialPage-form2">
+          <label data-testid="input-gravatar-email" htmlFor="email" className="initialPage-form2-label">Email:</label>
+          <input type="email" id="email" name="gravatarEmail" onChange={this.onChange} className="initialPage-form2-input" />
         </div>
       </div>
     );
@@ -68,11 +57,12 @@ class InitialPage extends Component {
   render() {
     const { name, gravatarEmail, showConfig } = this.state;
     return (
-      <div>
+      <div className="inicialPage-render">
         <form id="loginForm" name="form" onSubmit={this.onSubmit}>
           {this.renderInputs()}
-          <div>
+          <div className="initialPage-render">
             <button
+              className="initialPage-render-button"
               data-testid="btn-play"
               type="submit"
               id="btn"

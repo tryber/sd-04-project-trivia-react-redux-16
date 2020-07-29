@@ -3,7 +3,7 @@ export const RESET_PLAYER = 'RESET_PLAYER';
 export const UPDATE_SCORE = 'UPDATE_SCORE';
 export const UPDATE_RANKING = 'UPDATE_RANKING';
 
-export const updatePlayer = (player) => ({
+export const updatePlayer = (playerInfo) => ({
   // player: {
   //     name,
   //     assertions,
@@ -11,7 +11,7 @@ export const updatePlayer = (player) => ({
   //     gravatarEmail
   // }
   type: UPDATE_PLAYER,
-  player,
+  playerInfo,
 });
 
 export const resetPlayer = () => ({

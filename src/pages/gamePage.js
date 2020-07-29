@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import Header from '../components/header';
 import { fetchTrivia } from '../service';
 import Question from '../components/question';
-import '../styles/gamePage.css';
+import './gamePage.css';
 
 class gamePage extends Component {
   constructor(props) {
@@ -30,7 +30,7 @@ class gamePage extends Component {
         <Header />
         {questions && questions.length > 0
           ? <Question info={questions[current]} onNext={this.nextQuestion} />
-          : <div>Loading...</div>}
+          : <div className="loading" data-text="loading">Loading...</div>}
       </div>
     );
   }
