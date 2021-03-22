@@ -4,12 +4,6 @@ export const UPDATE_SCORE = 'UPDATE_SCORE';
 export const UPDATE_RANKING = 'UPDATE_RANKING';
 
 export const updatePlayer = (player) => ({
-  // player: {
-  //     name,
-  //     assertions,
-  //     score,
-  //     gravatarEmail
-  // }
   type: UPDATE_PLAYER,
   player,
 });
